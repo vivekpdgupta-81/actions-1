@@ -1,0 +1,39 @@
+name: My first workflow
+
+on: push
+
+jobs:
+    first_job:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout Repo
+          uses: actions/checkout@v4
+
+        - name: list and read files
+          run: |
+            echo "My First Github Actions job"
+            ls -lart
+            cat README.md
+            pwd
+            
+        
+    #    - name: Execute Cowssay CMD
+    #      run: cowsay -f dragon "Run for Cover, I am Dragon..." >> dragon.txt
+        
+    #   - name: Test File Exists
+    #     run:  grep -i "dragon" dragon.txt
+
+    #   - name: Read File
+    #     run: cat dragon.txt
+
+    #   - name: welcome message
+    #     run: echo "My First Github Actions job"
+
+    #   - name: list files
+    #     run: ls -lart
+
+    #   - name: Show the existing directory
+    #     run: pwd
+
+    #   - name: read files
+    #     run: cat README.md
