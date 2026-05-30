@@ -1,4 +1,4 @@
-name: My first workflow
+name: My first workflow -modified
 
 on: push
 
