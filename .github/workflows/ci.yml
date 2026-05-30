@@ -12,5 +12,8 @@ jobs:
         - name: list files
           run: ls -lart
 
+        - name: Show the existing directory
+          run: pwd
+
         - name: read files
           run: cat README.md
