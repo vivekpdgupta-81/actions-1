@@ -9,6 +9,18 @@ jobs:
         - name: Checkout Repo
           uses: actions/checkout@v4
 
+        - name: Install Cowsay Program
+          run: sudo apt-get install cowsay -y
+        
+        - name: Execute Cowssay CMD
+          run: cowsay -f dragon "Run for Cover, I am Dragon..." >> dragon.txt
+        
+        -name: Test File Exists
+         run:  grep -i "dragon" dragon.txt
+
+        - name: Read File
+          run: cat dragon.txt
+
         - name: welcome message
           run: echo "My First Github Actions job"
 
