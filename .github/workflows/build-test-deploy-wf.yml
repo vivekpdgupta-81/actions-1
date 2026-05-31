@@ -7,15 +7,17 @@ jobs:
         runs-on: ubuntu-latest
         steps:
         - name: Install Cowsay Program
-          run: sudo apt-get install cowsay -y
+          run: |
+            sudo apt-get update
+            sudo apt-get install cowsay -y
         
         - name: Execute Cowssay CMD
           run: cowsay -f dragon "Run for Cover, I am Dragon..." >> dragon.txt
 
         - name: Upload into Artifactory
-          uses: actions/upload-artifactory@v3
+          uses: actions/upload-artifact@v3
           with:
-            name: dragon-test-file
+            name: dragon-text-file
             path: dragon.txt
 
     test_job_2:
@@ -23,9 +25,9 @@ jobs:
         runs-on: ubuntu-latest
         steps:    
         - name: Download artifactory
-          uses: actions/download-artifactory@v3
+          uses: actions/download-artifact@v3
           with: 
-            name: gragon-text-file
+            name: dragon-text-file
 
         - name: Test File Exists
           run:  grep -i "dragon" dragon.txt
@@ -35,7 +37,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:    
         - name: Download artifactory
-          uses: actions/download-artifactory@v3
+          uses: actions/download-artifact@v3
           with: 
             name: dragon-text-file
         - name: read files
