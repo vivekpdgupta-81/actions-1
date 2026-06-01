@@ -85,4 +85,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Docker run
-      run: docker run -d -p 8080:80 docker.io/dockerusername/imageName:latest
+      run: docker run -d -p 8080:80 $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
