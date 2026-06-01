@@ -78,7 +78,7 @@ jobs:
       run: docker login --username=$DOCKER_USERNAME --password=$DOCKER_PASSWORD
 
     - name: docker publish
-      run: docker push $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME
+      run: docker push $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
     
    docker_image_deploy:
     needs: docker_image_build
