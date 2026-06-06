@@ -2,7 +2,7 @@ name: Docker image build & trigger testing
 
 on: 
      schedule:
-       - cron: "*/1 * * * *"
+       - cron: "*/5 * * * *"
 #    push
 env:
     CONTAINER_REGISTRY: docker.io
