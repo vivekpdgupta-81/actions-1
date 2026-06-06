@@ -1,4 +1,4 @@
-name: Docker image build & variable testing
+name: Echo Docker image build & workflow dispatch testing
 
 on:
   workflow_dispatch:
