@@ -1,3 +1,6 @@
+##### concurrency works on job or workflow level and it has two options ########
+##### Option1: group - Its the unique name assigned thats it #######
+##### Options2: Cancel-in-progress set as either true or false #####
 name: Concurrency testing
 
 on:
@@ -22,6 +25,9 @@ jobs:
 
   docker_image_deploy:
     needs: docker_image_build
+    concurrency: 
+        group: Production deployment
+        cancel-in-progress: true
     runs-on: ubuntu-latest
     steps:
       - name: Docker run
