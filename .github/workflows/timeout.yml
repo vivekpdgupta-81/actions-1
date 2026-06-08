@@ -1,7 +1,8 @@
 ### This is to test the timeout-minutes testing, since many times, we keep our job running
 ### for long and this consumes our actions un-nesssarily so we set timeout for the jobs to auto
 ### terminate and can be set at step or job level
-name: Timeout in minutes testing
+
+name: Timeout testing
 
 on:
   workflow_dispatch:
