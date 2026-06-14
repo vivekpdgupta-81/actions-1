@@ -1,0 +1,25 @@
+# This is to practice matrix configuration, running same set of commands or same image testing
+# over the differnt OS or differnt versions of my images over different OS
+
+## Below is simply to check how it works flat without any matrix configuration
+name: Matrix Configuration
+
+on:
+    push:
+    workflow_dispatch:
+
+jobs:
+    Deploy-on-Ubuntu:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Echo Docker Details
+          run: docker info
+        - name: Run Images
+          run: docker run hello-world
+    Deploy-on-windows:
+        runs-on: windows-latest
+        steps:
+        - name: Echo Docker details
+          run: docker info
+        - name: Run Images
+          run: docker run hello-world
