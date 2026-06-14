@@ -9,18 +9,34 @@ on:
     push:
     workflow_dispatch:
 
+#jobs:
+#    Deploy-on-Ubuntu:
+#        runs-on: ubuntu-latest
+#        steps:
+#        - name: Echo Docker Details
+#          run: docker info
+#        - name: Run Images
+#          run: docker run hello-world
+#    Deploy-on-windows:
+#        runs-on: windows-latest
+#        steps:
+#        - name: Echo Docker details
+#          run: docker info
+#        - name: Run Images
+#         run: docker run hello-world
+## The below testing is to add matrix configuration with different OS version and different Image
+## versions running parallel and calling these images & OS versions as variable
+## This is going to fail while running the job to run alpine over windows
 jobs:
-    Deploy-on-Ubuntu:
-        runs-on: ubuntu-latest
+    Deploy:
+        strategy:
+          matrix:
+            os: [ubuntu-latest, ubuntu-20.04, windows-latest]
+            images: [hello world,alpine]
+        runs-on: ${{matrix.os}}
         steps:
         - name: Echo Docker Details
           run: docker info
-        - name: Run Images
-          run: docker run hello-world
-    Deploy-on-windows:
-        runs-on: windows-latest
-        steps:
-        - name: Echo Docker details
-          run: docker info
-        - name: Run Images
-          run: docker run hello-world
+        - name: Run Images on ${{matrix.images}}
+          run: docker run ${{matrix.images}}
+    
