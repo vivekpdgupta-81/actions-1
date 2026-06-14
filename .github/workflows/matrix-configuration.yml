@@ -1,7 +1,8 @@
 # This is to practice matrix configuration, running same set of commands or same image testing
 # over the differnt OS or differnt versions of my images over different OS
 
-## Below is simply to check how it works flat without any matrix configuration
+## Below is simply to check how it works flat without any matrix configuration &  both the steps
+## runs parallely 
 name: Matrix Configuration
 
 on:
