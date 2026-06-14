@@ -27,12 +27,19 @@ on:
 ## The below testing is to add matrix configuration with different OS version and different Image
 ## versions running parallel and calling these images & OS versions as variable
 ## This is going to fail while running the job to run alpine over windows
+## Added additional confi at line 37 to 42 to include and exlcude what to run where to run
 jobs:
     Deploy:
         strategy:
           matrix:
             os: [ubuntu-latest, ubuntu-20.04, windows-latest]
             images: [hello-world,alpine]
+            exclude:
+              - images: alpine
+                os: windows-latest
+            include:
+              - images: amd64/alpine
+                os: ubuntu-20.04
         runs-on: ${{matrix.os}}
         steps:
         - name: Echo Docker Details
