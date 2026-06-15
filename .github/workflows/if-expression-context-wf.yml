@@ -1,6 +1,6 @@
 name: If expression with context testing
 
-push:
+on:  push
 
 jobs:
    docker_image_build:
