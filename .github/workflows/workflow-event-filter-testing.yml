@@ -1,0 +1,24 @@
+name: Testing workflow event filters in github
+
+on:
+    push:
+        branches:
+            -   main
+            -   '!feature/*'    # ! sign signifies ignore feature branches
+        # branches ignore:      # In case, we need to exclude the feature branch
+        #   - feature/*     # feature/add-music , feature/UpdateImages
+        #   - test/**       # Test UI, in case you have test/ui/index, test/checkout/payment 
+    pull request:
+        types:
+            - opened    # triggers the WF in case the PR is open or closed
+            - closed
+        paths-ignore:
+            - README.md     # workflow will only run a pull request that includes a change on any file other than README.md
+        branches:
+            - main          # configure your workflow to only run on pull requests that taregt specific branches
+
+jobs:
+    Echo Hello:
+        runs-on: ubuntu-latest
+        steps:
+        - run: echo this workflow/job/step is executed for eventype - ${{github.event_name}}
