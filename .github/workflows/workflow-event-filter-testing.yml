@@ -18,7 +18,7 @@ on:
             - main          # configure your workflow to only run on pull requests that taregt specific branches
 
 jobs:
-    Echo Hello:
+    Echo_Hello:
         runs-on: ubuntu-latest
         steps:
         - run: echo this workflow/job/step is executed for eventype - ${{github.event_name}}
