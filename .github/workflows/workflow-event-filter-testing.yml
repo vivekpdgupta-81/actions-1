@@ -8,7 +8,7 @@ on:
         # branches ignore:      # In case, we need to exclude the feature branch
         #   - feature/*     # feature/add-music , feature/UpdateImages
         #   - test/**       # Test UI, in case you have test/ui/index, test/checkout/payment 
-    pull request:
+    pull_request:
         types:
             - opened    # triggers the WF in case the PR is open or closed
             - closed
